@@ -2,3 +2,5 @@ phpsysinfo.ini
 composer.lock
 
 !buildTools
+
+!.woodpecker
