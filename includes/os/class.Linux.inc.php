@@ -826,8 +826,18 @@ class Linux extends OS
 							}
 							break;
 						case 'cpu mhz':
-						case 'clock':
 							if ($arrBuff2 > 0) {
+								$dev->setCpuSpeed($arrBuff2);
+								$speedset = true;
+							}
+							break;
+						case 'clock':
+							if (preg_match('/^(\d+)\.\d+MHz/i', $arrBuff2, $bufr2)) {
+								if ($bufr2[1] > 0) {
+									$dev->setCpuSpeed($bufr2[1]);
+									$speedset = true;
+								}
+							} elseif ($arrBuff2 > 0) {
 								$dev->setCpuSpeed($arrBuff2);
 								$speedset = true;
 							}
